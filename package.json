@@ -1,0 +1,23 @@
+{
+  "name": "reddit-uncensorship",
+  "version": "2.0.0",
+  "description": "Node.js reddit bot powering /u/uncensorship",
+  "main": "uncensorship.js",
+  "scripts": {
+    "start": "node uncensorship.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "nodewhal": "git://github.com/go1dfish/nodewhal.git#master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/go1dfish/reddit-uncensorship.git"
+  },
+  "author": "go1dfish",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/go1dfish/reddit-uncensorship/issues"
+  },
+  "homepage": "https://github.com/go1dfish/reddit-uncensorship"
+}
