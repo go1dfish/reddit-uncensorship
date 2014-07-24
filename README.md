@@ -7,7 +7,7 @@ Original implementation by /u/sunshine-x rewritten using Nodewhal by /u/go1dfish
 
 ## Instructions
 
-    git clone https://github.com/go1dfish/uncensorship.git
+    git clone https://github.com/go1dfish/reddit-uncensorship.git uncensorship
     cd uncensorship
     cp config.json.example config.json
     edit config.json # add your username/password and subreddit
