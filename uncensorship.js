@@ -1,9 +1,17 @@
 var Nodewhal = require('nodewhal'),
     defaultTaskInterval = 3000,
     config = require('./config'),
+    state = {},
     latestReportedTime = null,
+    fs = require('fs'),
     redditBase = 'http://reddit.com',
     bot = Nodewhal(config.userAgent);
+
+try {
+  state = require('./state');
+  latestReportedTime = state.latestReportedTime;
+} catch(e) {
+}
 
 function reportAction(action) {
   return bot.byId(action.target_fullname).then(function(post) {
@@ -41,8 +49,10 @@ bot.login(config.username, config.password).then(function(bot) {
       if (!actions.length) {return;}
       return Nodewhal.schedule.runInSeries(actions.map(function(action) {
         if (!latestReportedTime || action.created_utc > latestReportedTime) {
-          latestReportedTime = action.created_utc;
-          return reportAction(action);
+          state.latestReportedTime = latestReportedTime = action.created_utc;
+          return reportAction(action).then(function() {
+            return fs.writeFile('state.json', JSON.stringify(state));
+          });
         }
       }));
     });

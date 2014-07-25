@@ -15,8 +15,3 @@ Original implementation by /u/sunshine-x rewritten using Nodewhal by /u/go1dfish
     npm start
 
 The bot will automatically report removals/approvals for any sub it is a moderator of other than the report subreddit itself.
-
-
-### Known issues
-
-Restarting the bot can result in duplicate posts
